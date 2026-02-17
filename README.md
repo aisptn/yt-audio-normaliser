@@ -18,7 +18,7 @@ A Chrome extension that normalizes audio loudness on YouTube and YouTube Music f
 2. Open `chrome://extensions/` in Chrome
 3. Enable **Developer mode** (top right)
 4. Click **Load unpacked** and select this folder
-5. The 🎚️ icon appears in your toolbar
+5. The extension icon appears in your toolbar
 
 ## Usage
 
