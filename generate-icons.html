@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head><title>Generate Icons</title></head>
+<body>
+<h2>Click each button to download the icon</h2>
+<button onclick="gen(16)">icon16.png</button>
+<button onclick="gen(48)">icon48.png</button>
+<button onclick="gen(128)">icon128.png</button>
+<canvas id="c" style="display:none"></canvas>
+<script>
+function gen(size) {
+  const c = document.getElementById('c');
+  c.width = c.height = size;
+  const ctx = c.getContext('2d');
+
+  // Background
+  const g = ctx.createLinearGradient(0, 0, size, size);
+  g.addColorStop(0, '#3ea6ff');
+  g.addColorStop(1, '#7c4dff');
+  ctx.fillStyle = g;
+  ctx.beginPath();
+  ctx.roundRect(0, 0, size, size, size * 0.18);
+  ctx.fill();
+
+  // Sound wave icon
+  ctx.strokeStyle = '#fff';
+  ctx.lineCap = 'round';
+  ctx.lineWidth = Math.max(2, size * 0.08);
+  const cx = size / 2;
+  const cy = size / 2;
+  const barW = size * 0.09;
+  const gap = size * 0.14;
+  const bars = [0.3, 0.7, 1.0, 0.7, 0.3];
+  const startX = cx - (bars.length - 1) / 2 * gap;
+
+  bars.forEach((h, i) => {
+    const x = startX + i * gap;
+    const half = (size * 0.35) * h;
+    ctx.beginPath();
+    ctx.moveTo(x, cy - half);
+    ctx.lineTo(x, cy + half);
+    ctx.stroke();
+  });
+
+  // Download
+  const a = document.createElement('a');
+  a.download = `icon${size}.png`;
+  a.href = c.toDataURL('image/png');
+  a.click();
+}
+</script>
+</body>
+</html>

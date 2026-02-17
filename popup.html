@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=360">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- ── Header ── -->
+    <header class="header">
+      <div class="brand">
+        <span class="logo">🎚️</span>
+        <h1>YT Normalizer</h1>
+      </div>
+      <label class="toggle" title="Enable / Disable">
+        <input type="checkbox" id="enabled">
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </label>
+    </header>
+
+    <div class="status-bar">
+      <span class="dot" id="statusDot"></span>
+      <span id="statusText">Checking…</span>
+    </div>
+
+    <!-- ── Presets ── -->
+    <section class="section">
+      <label class="section-label">Preset</label>
+      <div class="preset-row">
+        <button class="preset" data-preset="light">Light</button>
+        <button class="preset" data-preset="medium">Medium</button>
+        <button class="preset" data-preset="heavy">Heavy</button>
+        <button class="preset" data-preset="custom">Custom</button>
+      </div>
+    </section>
+
+    <!-- ── Meters ── -->
+    <section class="section">
+      <label class="section-label">Levels</label>
+      <div class="meter-group">
+        <div class="meter-row">
+          <span class="meter-label">IN</span>
+          <div class="meter"><div class="meter-fill" id="meterIn"></div></div>
+          <span class="meter-val" id="valIn">—</span>
+        </div>
+        <div class="meter-row">
+          <span class="meter-label">OUT</span>
+          <div class="meter"><div class="meter-fill meter-fill--out" id="meterOut"></div></div>
+          <span class="meter-val" id="valOut">—</span>
+        </div>
+        <div class="meter-row">
+          <span class="meter-label">GR</span>
+          <div class="meter meter--gr"><div class="meter-fill meter-fill--gr" id="meterGR"></div></div>
+          <span class="meter-val" id="valGR">0 dB</span>
+        </div>
+        <div class="meter-row">
+          <span class="meter-label">AG</span>
+          <div class="meter meter--ag">
+            <div class="meter-center-line"></div>
+            <div class="meter-fill meter-fill--ag" id="meterAG"></div>
+          </div>
+          <span class="meter-val" id="valAG">0 dB</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Auto-Gain toggle ── -->
+    <section class="section row-between">
+      <label class="section-label" style="margin-bottom:0">Auto-Gain</label>
+      <label class="toggle toggle--sm">
+        <input type="checkbox" id="autoGain">
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </label>
+    </section>
+
+    <!-- ── Target Level ── -->
+    <section class="section" id="targetSection">
+      <div class="slider-row">
+        <label>Target Loudness</label>
+        <span class="slider-val" id="targetLevelVal">-14 dB</span>
+      </div>
+      <input type="range" id="targetLevel" min="-24" max="-6" step="1" value="-14">
+    </section>
+
+    <!-- ── Advanced ── -->
+    <details class="section advanced" id="advancedDetails">
+      <summary class="section-label clickable">Advanced Controls ▾</summary>
+
+      <div class="slider-row">
+        <label>Threshold</label>
+        <span class="slider-val" id="thresholdVal">-24 dB</span>
+      </div>
+      <input type="range" id="threshold" min="-60" max="0" step="1" value="-24">
+
+      <div class="slider-row">
+        <label>Ratio</label>
+        <span class="slider-val" id="ratioVal">4 : 1</span>
+      </div>
+      <input type="range" id="ratio" min="1" max="20" step="0.5" value="4">
+
+      <div class="slider-row">
+        <label>Knee</label>
+        <span class="slider-val" id="kneeVal">10 dB</span>
+      </div>
+      <input type="range" id="knee" min="0" max="40" step="1" value="10">
+
+      <div class="slider-row">
+        <label>Attack</label>
+        <span class="slider-val" id="attackVal">3 ms</span>
+      </div>
+      <input type="range" id="attack" min="0" max="200" step="1" value="3">
+
+      <div class="slider-row">
+        <label>Release</label>
+        <span class="slider-val" id="releaseVal">250 ms</span>
+      </div>
+      <input type="range" id="release" min="10" max="1500" step="10" value="250">
+
+      <div class="slider-row">
+        <label>Makeup Gain</label>
+        <span class="slider-val" id="makeupGainVal">+6 dB</span>
+      </div>
+      <input type="range" id="makeupGain" min="0" max="30" step="0.5" value="6">
+
+      <div class="slider-row">
+        <label>Pre-Gain</label>
+        <span class="slider-val" id="preGainVal">0 dB</span>
+      </div>
+      <input type="range" id="preGain" min="-20" max="20" step="0.5" value="0">
+    </details>
+
+    <!-- ── Reset ── -->
+    <section class="section" style="text-align:center">
+      <button class="btn-reset" id="resetBtn">Reset to Defaults</button>
+    </section>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
