@@ -52,4 +52,4 @@ A Chrome extension that normalizes audio loudness on YouTube and YouTube Music f
 
 ## License
 
-MIT
+This project is licensed under the MIT License.
