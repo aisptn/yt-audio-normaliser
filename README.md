@@ -1,7 +1,9 @@
-
 # YouTube Audio Normalizer
 
 A Chrome extension that normalizes audio loudness on YouTube and YouTube Music for consistent volume across videos and tracks.
+
+[Click here](https://github.com/aisptn/yt-audio-normaliser/archive/refs/heads/main.zip) to download the latest version
+
 
 ## Features
 
